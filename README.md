@@ -47,7 +47,7 @@ Please note that it may take a minute for your new access key to propagate in th
 
 ## Install
 
-You can download binaries from [the releases section](https://github.com/stefansundin/aws-rotate-key/releases/latest).
+You can download binaries from [the releases section](https://github.com/hudl/aws-rotate-key/releases/latest).
 
 You can use Homebrew to install on macOS:
 
