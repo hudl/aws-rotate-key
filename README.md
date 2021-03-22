@@ -149,7 +149,7 @@ the AWS management console.
 To download and hack on the source code, run:
 
 ```
-git clone https://github.com/stefansundin/aws-rotate-key.git
+git clone https://github.com/hudl/aws-rotate-key.git
 cd aws-rotate-key
 go build
 ```
