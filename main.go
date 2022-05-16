@@ -28,7 +28,13 @@ func main() {
 	flag.BoolVar(&yesFlag, "y", false, `Automatic "yes" to prompts.`)
 	flag.BoolVar(&mfaFlag, "mfa", false, "Use MFA.")
 	flag.BoolVar(&deleteFlag, "d", false, "Delete old key without deactivation.")
-	flag.StringVar(&profileFlag, "profile", "default", "The profile to use.")
+
+	defaultProfile, exists := os.LookupEnv("AWS_PROFILE")
+	if !exists {
+		defaultProfile = "default"
+	}
+
+	flag.StringVar(&profileFlag, "profile", defaultProfile, "The profile to use.")
 	flag.BoolVar(&versionFlag, "version", false, "Print version number")
 	flag.Parse()
 

@@ -4,3 +4,5 @@ Thumbs.db
 aws-rotate-key
 aws-rotate-key.exe
 release/
+
+.vscode
