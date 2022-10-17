@@ -51,12 +51,6 @@ Please note that it may take a minute for your new access key to propagate in th
 
 You can download binaries from [the releases section](https://github.com/hudl/aws-rotate-key/releases/latest).
 
-If you have Go installed then you can download and build the program using:
-
-```
-go install github.com/stefansundin/aws-rotate-key@latest
-```
-
 ## Setup
 
 Make sure your users have permissions to update their own access keys.
