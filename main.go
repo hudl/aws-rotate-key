@@ -17,18 +17,20 @@ import (
 	"github.com/aws/aws-sdk-go/service/sts"
 )
 
-const version = "1.0.7"
+const version = "1.0.8"
 
 func main() {
 	var yesFlag bool
 	var mfaFlag bool
 	var profileFlag string
+	var authProfileFlag string
 	var versionFlag bool
 	var deleteFlag bool
 	flag.BoolVar(&yesFlag, "y", false, `Automatic "yes" to prompts.`)
 	flag.BoolVar(&mfaFlag, "mfa", false, "Use MFA.")
 	flag.BoolVar(&deleteFlag, "d", false, "Delete old key without deactivation.")
 	flag.StringVar(&profileFlag, "profile", "default", "The profile to use.")
+	flag.StringVar(&authProfileFlag, "auth-profile", "", "Use a different profile when calling AWS.")
 	flag.BoolVar(&versionFlag, "version", false, "Print version number")
 	flag.Parse()
 
@@ -52,6 +54,10 @@ func main() {
 	creds, err := credentialsProvider.Get()
 	check(err)
 	fmt.Printf("Using access key %s from profile \"%s\".\n", creds.AccessKeyID, profileFlag)
+
+	if authProfileFlag != "" {
+		profileFlag = authProfileFlag
+	}
 
 	// Read credentials file
 	bytes, err := ioutil.ReadFile(credentialsPath)
